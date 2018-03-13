@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<style type="text/css">
+	ul,li{list-style: none;}
+	#box{padding: 6px 10px;
+	border: 1px solid #D3D3D3;
+	border-radius:4px ;
+	margin-bottom: 12px;
+	display: inline-block;
+	color: #000000;
+	}
+	#box:hover{
+		background: #999999;color: white;
+		transform: rotateX(180deg);
+		transform: scale(1.4);
+	}
+</style>
+<body>
+	<ul id="index">
+		<li v-for="(item,index) in list">
+			<a :href="item.url">
+				<div id="box"  @mouseenter='mouse($event)'  @mouseout='mouseout($event)'>
+					{{index}}--{{item.title}}
+				</div>
+			</a>
+		</li>
+	</ul>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+	var list = [
+		{
+		'url':'javascript_match.html',
+		"title":'match'
+		},
+		{
+		'url':'cookie.html',
+		"title":'cookie'
+		},
+		{
+		'url':'时间倒计时.html',
+		"title":'时间倒计时'
+		},
+		{
+		'url':'layer.html',
+		"title":'layer'
+		},
+		{
+		'url':'canvas动态背景.html',
+		"title":'canvas动态背景'
+		},
+		{
+		'url':'带预览的上传.html',
+		"title":'带预览的上传'
+		},
+		{
+		'url':'带预览的文件.html',
+		"title":'带预览的文件'
+		},
+		{
+		'url':'进度条2.html',
+		"title":'进度条2'
+		},
+		{
+		'url':'文件上传.html',
+		"title":'文件上传'
+		},
+		{
+		'url':'系统自带弹框.html',
+		"title":'系统自带弹框'
+		},
+		{
+		'url':'下拉加载.html',
+		"title":'下拉加载'
+		},
+		{
+		'url':'文件上传.html',
+		"title":'文件上传'
+		},
+		{
+		'url':'响应式.html',
+		"title":'响应式'
+		},
+		{
+		'url':'小知识.html',
+		"title":'小知识'
+		},
+		{
+		'url':'验证码倒计时.html',
+		"title":'验证码倒计时'
+		},
+		{
+		'url':'new_file.html',
+		"title":'new_file'
+		},
+		{
+		'url':'二维码.html',
+		"title":'二维码'
+		}
+	];
+	var index =new Vue({
+		el:'#index',
+		data:{
+			list:list
+		},
+		methods:{
+			mouse:function(e){
+				var color = Math.round(Math.random()*1000);
+				console.log(color)
+				console.log($(e.target).css('background','#'+color))
+			},
+			mouseout:function(e){
+				console.log("jkhjhk")
+				$(e.target).css('background','none')
+			}
+		}
+	})
+</script>
+</html>
